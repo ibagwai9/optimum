@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import { signinReducer } from '../features/signin/signinSlice';
+import { signinReducer } from './reduces/signinSlice';
 
 const rootReducer = combineReducers({
   signin: signinReducer,

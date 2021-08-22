@@ -12,7 +12,7 @@ export function getUser(username, apiContext = {}) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (token) {
-        if (username === 'glenn') {
+        if (username.length) {
           const user = {
             username: 'glenn',
             firstName: 'Glenn',

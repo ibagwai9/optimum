@@ -1,11 +1,11 @@
 import { nanoid } from '@reduxjs/toolkit';
-import { NETWORK_LATENCY } from '../utils/constants';
+import { NETWORK_LATENCY } from '../app/actions/constants';
 import { getUser } from './userAPI';
 
 export function signin({ username, password }, apiContext = {}) {
   return new Promise((resolve, reject) => {
     setTimeout(async () => {
-      if (username === 'glenn' && password === 'koifish') {
+      if (username.length && password.length) {
         try {
           const token = `${username}:${nanoid()}`;
           const user = await getUser(username, { token });

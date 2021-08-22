@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Route, useHistory } from 'react-router-dom';
 import { Error } from '../../common/Error';
 import { Loading } from '../../common/Loading';
-import { checkAuth, logout, selectSignin } from './signinSlice';
+import { checkAuth, logout, selectSignin } from '../../app/reduces/signinSlice';
 
 export function AuthGuardedRoute({ children, ...rest }) {
   const { loading, loggedIn, error } = useSelector(selectSignin);
@@ -43,14 +43,6 @@ export function AuthGuardedRoute({ children, ...rest }) {
       return (
         <>
           {children}
-          <button
-            onClick={async () => {
-              await dispatch(logout());
-              history.push('/');
-            }}
-          >
-            Log Out
-          </button>
         </>
       );
     } else {
